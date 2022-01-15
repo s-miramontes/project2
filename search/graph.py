@@ -1,3 +1,8 @@
+################
+#
+
+
+
 import networkx as nx
 
 class Graph:
@@ -21,7 +26,62 @@ class Graph:
         * If there is an end node and a path does not exist, return None
 
         """
-        return
+        # keep track of visited nodes, start queue
+        been_there = []
+        my_queue = []
+
+        # fill queue
+        my_queue.append(start)
+        been_there.append(start)
+
+        # parent tracking
+        my_parents = dict()
+        my_parents[start] = None
+
+        # not path founds yet @ start
+        path = False
+
+        # while not empty
+        while my_queue:
+            # dequeue
+            curr_ = queue.pop(0) 
+
+            # if end_node
+            if end:
+                # reached the end, bye
+                if curr_ == end:
+                    path = True
+                    break
+
+            # traverse
+            for neighbor in self.graph[curr_]:
+
+                if neighbor not in been_there:
+                    queue.append(neighbor)
+                    my_parents[neighbor] = curr_
+                    been_there.append(neighbor)
+
+        
+        # pathfinder, end node exists
+        if end and path:
+            the_path = []
+
+            if path:
+                end_node = end
+                the_path.append(end_node)
+
+                while my_parents[end_node] is not None:
+                    the_path.append(my_parents[end_node])
+                    end_node = my_parents[end_node]
+
+                the_path.reverse()
+            return the_path
+
+        elif end and not path:
+            return None
+
+        else:
+            return been_there
 
 
 

@@ -2,7 +2,9 @@
 import pytest
 from search import graph
 
-@pytest.fixture
+@pytest.fixture # what is this
+
+
 def test_bfs_traversal():
     """
     TODO: Write your unit test for a breadth-first
@@ -11,6 +13,10 @@ def test_bfs_traversal():
     that all nodes are being traversed (ie. returns 
     the right number of nodes, in the right order, etc.)
     """
+    a_graph = graph.Graph("data/dummy.adjlist")
+
+
+
     pass
 
 def test_bfs():
