@@ -49,9 +49,14 @@ def test_bfs():
     traverse_AD = a_graph.bfs('A', 'D')
     traverse_AG = a_graph.bfs('A', 'G')
 
+    # testing an edge case
+    traverse_fake = a_graph.bfs('Z')
+
     # test non existing paths
     assert traverse_BC == None
     assert traverse_DG == None
     # test shortest paths 
     assert traverse_AD == ['A', 'B', 'D']
     assert traverse_AG == ['A', 'C', 'G']
+    # test error
+    assert traverse_fake == ValueError 
