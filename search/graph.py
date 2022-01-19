@@ -26,6 +26,17 @@ class Graph:
         * If there is an end node and a path does not exist, return None
 
         """
+        # edge cases
+        if start not in self.graph.nodes():
+            raise ValueError("Please a start node that is included in the graph!")
+
+        elif end not in self.graph.nodes():
+            raise ValueError("Please enter an end node that is included in the graph!")
+
+        elif start == end and self.graph.nodes():
+            return [start]
+
+
         # keep track of visited nodes, start queue
         been_there = []
         my_queue = []
