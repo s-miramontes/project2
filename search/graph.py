@@ -55,7 +55,7 @@ class Graph:
         # while not empty
         while my_queue:
             # dequeue
-            curr_ = queue.pop(0) 
+            curr_ = my_queue.pop(0) 
 
             # if end_node
             if end:
