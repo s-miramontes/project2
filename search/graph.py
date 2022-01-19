@@ -68,7 +68,7 @@ class Graph:
             for neighbor in self.graph[curr_]:
 
                 if neighbor not in been_there:
-                    queue.append(neighbor)
+                    my_queue.append(neighbor)
                     my_parents[neighbor] = curr_
                     been_there.append(neighbor)
 
